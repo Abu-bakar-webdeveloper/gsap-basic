@@ -1,5 +1,28 @@
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+
 const GsapStagger = () => {
   // TODO: Implement the gsap.stagger() method
+  useGSAP(() => {
+    gsap.to(".stagger-box",
+      {
+        y: 300,
+        duration: 3,
+        borderRadius: "100%",
+        stagger: {
+          // wrap advanced options in an object
+          amount: 1.5,
+          grid: [2, 1],
+          from: 'center',
+          axis: 'y',
+          ease: 'power2.inOut',
+          repeat: -1 // Repeats immediately, not waiting for the other staggered animations to finish
+        }
+      }
+    )
+  }, [])
+
 
   return (
     <main>
